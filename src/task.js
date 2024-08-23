@@ -6,15 +6,15 @@ export const addTask = (task) => {
     const newTask = {
         id: Date.now(),
         text: task,
-        competed: false,
+        completed: false,
     };
-    task.push(newTask);
-    localStorage.setItem("task", JSON.stringify(tasks));
+    tasks.push(newTask);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 };
 
 // Función para eliminar una tarea
 export const deleteTask = (id) => {
-    task = tasks.filter((task) => task.id !== parseInt(id));
+    tasks = tasks.filter((task) => task.id !== parseInt(id));
     localStorage.setItem("tasks", JSON.stringify(tasks));
 };
 
@@ -22,11 +22,11 @@ export const deleteTask = (id) => {
 export const toggleTask = (id) => {
 tasks = tasks.map((task) => {
     if (task.id === parseInt(id)) {
-        task.competed = !task.competed;
+        task.completed = !task.completed;
     }
     return task;
 });
-    localStorage.setItem("task", JSON.stringify(tasks));
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 };
 
 // Función para llevar las tareas
